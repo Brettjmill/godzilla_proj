@@ -11,6 +11,7 @@ urlpatterns = [
     path('collection/<int:collection_id>', views.collection),
     path('collection/all', views.all_films),
     path('messages/<int:movie_id>', views.message_post),
-    path('comments/<int:message_id>', views.comment_post),
-    path('watchlist', views.watchlist)
+    path('comments/<int:message_id>/<int:movie_id>', views.comment_post),
+    path('watchlist', views.watchlist),
+    path('watchlist/add/<int:film_id>', views.watchlist_prep)
 ]

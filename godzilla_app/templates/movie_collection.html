@@ -94,6 +94,10 @@
                         <img src="https://image.tmdb.org/t/p/w500/{{ film.poster }}" alt="poster" srcset="">
                         <p>{{ film.year }}</p>
                         <a href="/detail/{{ film.id }}">View This Film</a>
+                        <form action="/watchlist/add/{{ film.id }}" method="post">
+                            {% csrf_token %}
+                            <input type="button" value="Add to Watchlist">
+                        </form>
                     </div>
                     {% endfor %}
                 </div>

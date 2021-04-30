@@ -34,7 +34,9 @@
                     </ul>
                 </div>
                 <div id="details_body">
-                    <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster }}" alt="poster" id="details_img" srcset="">
+                    <div>
+                        <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster }}" alt="poster" id="details_img" srcset="">
+                    </div>
                     <div id="messages_box">
                         <p>{{ movie.summary }}</p>
                         <div id="post_message">
@@ -48,23 +50,31 @@
                             {% if movie.id == message.movie %}
                                 <div id="all_messages">
                                     <div>
-                                        <p>{{ message.user.first_name}} {{ message.user.last_name }} {{ message.updated_at }}</p>
-                                        <p>{{ message.message_content }}</p>
-                                        <div>
-                                            {% for comment in message.comments.all %}
-                                            <p>{{ comment.user.first_name}} {{ comment.user.last_name }} {{ comment.updated_at }}</p>
-                                            <p>{{ comment.comment_content }}</p>
-                                            {% endfor %}
+                                        <div id="message_box">
+                                            <div id="message_user_info">
+                                                <p>{{ message.user.first_name}} {{ message.user.last_name }} {{ message.updated_at }}</p>
+                                            </div>
+                                                <p>{{ message.message_content }}</p>
                                         </div>
-                                        <form action="/comments/{{ message.id }}" method="post">
-                                            {% csrf_token %}
-                                            <textarea name="comment_text" id="comment_ta" placeholder="Leave a comment!"></textarea>
-                                            <input type="submit" value="Post Comment">
-                                        </form>
+                                        {% for comment in message.comments.all %}
+                                            <div id="comment_box">
+                                                <div id="comment_user_info">
+                                                    <p>{{ comment.user.first_name}} {{ comment.user.last_name }} {{ comment.updated_at }}</p>
+                                                </div>
+                                                <p>{{ comment.comment_content }}</p>
+                                            </div>
+                                            {% endfor %}
+                                        <div id="make_comment">
+                                            <form action="/comments/{{ message.id }}/{{ movie.id }}" method="post">
+                                                {% csrf_token %}
+                                                <textarea name="comment_text" id="comment_ta" placeholder="Leave a comment!"></textarea>
+                                                <input type="submit" value="Post Comment">
+                                            </form>
+                                        </div>
                                     </div>
+                                </div>
                             {% endif %}
                         {% endfor %}
-                                </div>
                     </div>
                 </div>
             </div>

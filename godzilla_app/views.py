@@ -15,8 +15,9 @@ def index(request):
     if 'uuid' in request.session:
 
         return redirect('/monster_island')
-    
+
     else:
+
         return render(request, 'index.html')
 
 
@@ -223,7 +224,7 @@ def message_post(request, movie_id):
     return redirect(f'/detail/{movie_id}')
 
 
-def comment_post(request, message_id):
+def comment_post(request, message_id, movie_id):
     comment = Comment.objects.create(
         comment_content = request.POST['comment_text'],
         user = User.objects.get(id = request.session['uuid']),
@@ -234,9 +235,15 @@ def comment_post(request, message_id):
     return redirect(f'/detail/{movie_id}')
 
 
+def watchlist_prep(request, film_id):
+
+    return redirect('/watchlist')
+
+
 def watchlist(request):
     if 'uuid' not in request.session:
 
         return redirect('/')
+
 
     return render(request, 'watchlist.html')

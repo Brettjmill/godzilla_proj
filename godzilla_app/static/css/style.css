@@ -34,6 +34,7 @@
 #header{
     min-height: 150px;
     margin-bottom: 20px;
+    width: 1200px;
     padding: 10px;
     border-radius: 10px;
     background-color: rgb(48, 48, 48);
@@ -166,6 +167,7 @@
 
 #details_img{
     max-width: 350px;
+
 }
 
 #messages_box{
@@ -174,12 +176,38 @@
 }
 
 #post_message{
-    margin-left: 15px;
+    margin: 15px 0px 15px 15px;
 }
 
 #message_ta{
     min-width: 550px;
     height: 50px;
+}
+
+#message_box{
+    margin: 15px 0px 10px 15px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#message_user_info{
+    color:rgb(240, 177, 17);
+}
+
+#comment_box{
+    margin: 10px 0px 10px 60px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#comment_user_info{
+    color: rgb(184, 89, 11)
+}
+
+#make_comment{
+    margin: 15px 0px 15px 60px;
 }
 
 #comment_ta{
