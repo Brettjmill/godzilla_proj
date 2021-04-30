@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Movie Details</title>
+</head>
+<body id="body_standard">
+    <div id="container">
+        {% for movie in movie %}
+            <div id="header">
+                <h1>{{ movie.title }}</h1>
+                <p>{{ movie.tagline }}</p>
+                <div id="header_links">
+                    <a href="/watchlist">Your Watchlist</a>
+                    <a href="/logout">Log Out</a>
+                </div>
+            </div>
+            <div id="nav_and_body">
+                <div id="navbar">
+                    <a href="/monster_island" id="main_page">Back to the Island</a>
+                    <ul>Eras
+                        <li><a href="/collection/374509">Showa</a></li>
+                        <li><a href="/collection/374511">Heisei</a></li>
+                        <li><a href="/collection/374512">Millennium</a></li>
+                        <li><a href="/collection/691555">Reiwa</a></li>
+                        <li><a href="/collection/535313">Western</a></li>
+                        <li><a href="/collection/all">All</a></li>
+                    </ul>
+                </div>
+                <div id="details_body">
+                    <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster }}" alt="poster" id="details_img" srcset="">
+                    <div id="messages_box">
+                        <p>{{ movie.summary }}</p>
+                        <div id="post_message">
+                            <form action="/messages/{{ movie.id }}" method="post">
+                                {% csrf_token %}
+                                <textarea name="message_text" id="message_ta" placeholder="Leave a message!"></textarea>
+                                <input type="submit" value="Post Message">
+                            </form>
+                        </div>
+                        {% for message in messages %}
+                            {% if movie.id == message.movie %}
+                                <div id="all_messages">
+                                    <div>
+                                        <p>{{ message.user.first_name}} {{ message.user.last_name }} {{ message.updated_at }}</p>
+                                        <p>{{ message.message_content }}</p>
+                                        <div>
+                                            {% for comment in message.comments.all %}
+                                            <p>{{ comment.user.first_name}} {{ comment.user.last_name }} {{ comment.updated_at }}</p>
+                                            <p>{{ comment.comment_content }}</p>
+                                            {% endfor %}
+                                        </div>
+                                        <form action="/comments/{{ message.id }}" method="post">
+                                            {% csrf_token %}
+                                            <textarea name="comment_text" id="comment_ta" placeholder="Leave a comment!"></textarea>
+                                            <input type="submit" value="Post Comment">
+                                        </form>
+                                    </div>
+                            {% endif %}
+                        {% endfor %}
+                                </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+#body_login{
+    background: url("https://images5.alphacoders.com/793/thumb-1920-793807.jpg") black;
+}
+
+#body_standard{
+    background-color: black;
+}
+
+#container_login{
+    margin: 5% 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5% 25%;
+    color: white;
+}
+
+#container{
+    max-width: 1180px;
+    margin: 5% 5%;
+    color: white;
+    font-family: Impact;
+}
+
+.messages{
+    color: red;
+    font-weight: bold;
+}
+
+#header{
+    min-height: 150px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(48, 48, 48);
+}
+
+#header_links{
+    text-align: right;
+}
+
+#header_links a{
+    margin-right: 15px;
+}
+
+#nav_and_body{
+    display: flex;
+}
+
+#navbar{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    background-color: rgb(48,48,48);
+    border-radius: 10px;
+    min-width: 200px;
+}
+
+#navbar a{
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 120%;
+}
+
+#main_page{
+    margin-top: 15px;
+}
+
+#navbar ul{
+    margin-top: 25px;
+    margin-left: 15px;
+    font-size: 150%;
+}
+
+#navbar li{
+    margin-left: 25px;
+}
+
+#body_mi{
+    display: flex;
+}
+
+#body_mi p{
+    height: 600px;
+    margin-right: 20px;
+    width: 180px;
+    text-align: center;
+    font-size: 150%;
+    -webkit-text-stroke: 1px black;
+}
+
+#showa p{
+    background-image: url("https://i.pinimg.com/originals/a2/3d/54/a23d543627b6934892425134d1a6f13e.gif");
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+#heisei p{
+    background-image: url("https://i.gifer.com/INCB.gif");
+    background-position: 45% 50%;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+#millennium p{
+    background-image: url("https://i.imgur.com/OKxKTcY.gif");
+    background-color: rgb(48,48,48);
+    background-position: 43% 0%;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+#reiwa p{
+    background-image: url("https://64.media.tumblr.com/4d46ebc326cce8b358f0bb6ce5924df0/b52fa1d9982123a6-c1/s640x960/1461fdc04afc00cf71c30da927a11eede83330e7.gifv");
+    background-position: 55% 10%;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+#western p{
+    background-image: url("https://64.media.tumblr.com/f71d377f0cda75724ffec32b4d212b8a/tumblr_ps99yxz6HK1rsgw6y_400.gifv");
+    background-position: 51% 20%;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+.movie_card{
+    display: inline-block;
+    width: 210px;
+    min-height: 300px;
+    background-color: rgb(48, 48, 48);
+    vertical-align: top;
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.card_title{
+    font-size: 130%;
+}
+
+#card_title{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie_card img{
+    max-width: 200px;
+}
+
+#details_body{
+    display: flex;
+}
+
+#details_body p{
+    margin-left: 15px;
+}
+
+#details_img{
+    max-width: 350px;
+}
+
+#messages_box{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#post_message{
+    margin-left: 15px;
+}
+
+#message_ta{
+    min-width: 550px;
+    height: 50px;
+}
+
+#comment_ta{
+    min-width:550px;
+    height: 50px;
+}
