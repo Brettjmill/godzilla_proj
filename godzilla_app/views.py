@@ -151,7 +151,7 @@ def all_films(request):
     contents3 = urllib.request.urlopen("https://api.themoviedb.org/3/collection/374512?api_key=845d688f8b4a799bda05a35b3e16c248&language=en-US").read()
     results3 = json.loads(contents3)
 
-    contents4 = urllib.request.urlopen("https://api.themoviedb.org/3/collection/691555?api_key=845d688f8b4a799bda05a35b3e16c248&language=en-US").read()
+    contents4 = urllib.request.urlopen("https://api.themoviedb.org/3/movie/315011?api_key=845d688f8b4a799bda05a35b3e16c248&language=en-US").read()
     results4 = json.loads(contents4)
 
     contents5 = urllib.request.urlopen("https://api.themoviedb.org/3/collection/535313?api_key=845d688f8b4a799bda05a35b3e16c248&language=en-US").read()
@@ -186,14 +186,14 @@ def all_films(request):
         }
         coll_films.append(film_data)
 
-    for part in results4['parts']:
-        film_data = {
-            'id': part['id'],
-            'title': part['title'],
-            'poster': part['poster_path'],
-            'year': part['release_date']
-        }
-        coll_films.append(film_data)
+    
+    film_data = {
+        'id': results4['id'],
+        'title': results4['title'],
+        'poster': results4['poster_path'],
+        'year': results4['release_date']
+    }
+    coll_films.append(film_data)
 
     for part in results5['parts']:
         film_data = {

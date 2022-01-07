@@ -28,7 +28,7 @@
                         <li><a href="/collection/374509">Showa</a></li>
                         <li><a href="/collection/374511">Heisei</a></li>
                         <li><a href="/collection/374512">Millennium</a></li>
-                        <li><a href="/collection/691555">Reiwa</a></li>
+                        <li><a href="/detail/315011">Reiwa</a></li>
                         <li><a href="/collection/535313">Western</a></li>
                         <li><a href="/collection/all">All</a></li>
                     </ul>
@@ -52,14 +52,14 @@
                                     <div>
                                         <div id="message_box">
                                             <div id="message_user_info">
-                                                <p>{{ message.user.first_name}} {{ message.user.last_name }} {{ message.updated_at }}</p>
+                                                <p>{{ message.user.first_name}} {{ message.user.last_name }} -- ({{ message.updated_at }})</p>
                                             </div>
                                                 <p>{{ message.message_content }}</p>
                                         </div>
                                         {% for comment in message.comments.all %}
                                             <div id="comment_box">
                                                 <div id="comment_user_info">
-                                                    <p>{{ comment.user.first_name}} {{ comment.user.last_name }} {{ comment.updated_at }}</p>
+                                                    <p>{{ comment.user.first_name}} {{ comment.user.last_name }} -- ({{ comment.updated_at }})</p>
                                                 </div>
                                                 <p>{{ comment.comment_content }}</p>
                                             </div>
